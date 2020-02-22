@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////
-//       Realizado por: Exaidys Hernandea Yanes      //
+//       Realizado por: Exaidys Hernandez Yanes      // 
 //                 Camilo Álvarez Bravo             //
 /////////////////////////////////////////////////////
 #include <Adafruit_TFTLCD.h>   
