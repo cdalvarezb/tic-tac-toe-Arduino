@@ -1,4 +1,8 @@
-#include <Adafruit_TFTLCD.h> 
+////////////////////////////////////////////////////////
+//       Realizado por: Exaidys Hernandea Yanes      //
+//                 Camilo Álvarez Bravo             //
+/////////////////////////////////////////////////////
+#include <Adafruit_TFTLCD.h>   
 #include <Adafruit_GFX.h>    
 #include <TouchScreen.h>
 
