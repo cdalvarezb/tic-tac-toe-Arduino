@@ -65,15 +65,15 @@ tft.reset();
 
 void loop() 
 {
-
+//Definir los turnos de los jugadores
 {
   if ((numb_Turns == 0) || (numb_Turns == 2) || (numb_Turns == 4) || (numb_Turns == 6) || (numb_Turns == 8))
   {
-    turn = 1; 
+    turn = 1; //Turnos del jugador 1
   }
   else if ((numb_Turns == 1) || (numb_Turns == 3) || (numb_Turns == 5) || (numb_Turns == 7))
   {
-    turn = 2; 
+    turn = 2; //Turnos de jugador 2
   }
 
 
@@ -83,9 +83,10 @@ void loop()
   if (p.z > ts.pressureThreshhold) {
     
    p.x = map(p.x, TS_MAXX, TS_MINX,0, 320);
-  
+                                               
    p.y = map(p.y, TS_MAXY, TS_MINY, 0, 240);
-       
+    
+     //Para ubicar "X" o "Y" en la casilla 1   
    if(p.x>0 && p.x<107 && p.y>0 && p.y<80&& buttonEnabled && SQUARE1==0)
    {
    
@@ -117,8 +118,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
    }
    }
    
-    //AQUÍ SE TERMINA PARA EL PRIMER CUADRITO
-   
+    //Para la casilla 2
    if (p.x>0 && p.x<107 && p.y>80 && p.y<160 && buttonEnabled1 && SQUARE2==0)
    {
    
@@ -151,7 +151,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
    }
    }
    
-
+ //Para la casilla 3
 if(p.x>0 && p.x<107 && p.y>160 && p.y<240 && buttonEnabled2 && SQUARE3==0)
    {
   
@@ -182,7 +182,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
      SQUARE3=2;
    }
    }
-   
+  //Para la casilla 4  
 if(p.x>107 && p.x<214 && p.y>0 && p.y<80 && buttonEnabled3 && SQUARE4==0)
    
     if (turn == 1 ) //CASO PARA EL TURNO 1
@@ -212,7 +212,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
      SQUARE4=2;
    }
    }
- 
+  //Para la casilla 5
 if(p.x>107 && p.x<214 && p.y>80 && p.y<160 && buttonEnabled4 && SQUARE5==0)
  {
   
@@ -243,7 +243,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
      SQUARE5=2;
    }
  }
-  
+   //Para la casilla 6
 if(p.x>107 && p.x<214 && p.y>160 && p.y<240 && buttonEnabled5 && SQUARE6==0)
 {
   
@@ -274,7 +274,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
      SQUARE6=2;
    }
    }
-
+ //Para la casilla 7
 if(p.x>214 && p.x<320 && p.y>0 && p.y<80 && buttonEnabled6 && SQUARE7==0)
 {
   
@@ -305,7 +305,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
      SQUARE7=2;
    }
    }
-
+ //Para la casilla 8
 if(p.x>214 && p.x<320 && p.y>80 && p.y<160 && buttonEnabled7 && SQUARE8==0)
 {
    
@@ -337,6 +337,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
    }
    
 }
+  //Para la casilla 9
 if(p.x>214 && p.x<320 && p.y>160 && p.y<240 && buttonEnabled8 && SQUARE9==0)
 {
    
@@ -368,7 +369,7 @@ else if (turn == 2 )//CASO PARA EL TURNO 2
    }
 }
 }
-
+//FORMA DE ELEGIR EL GANADOR PARA JUGADOR 1
  if (((SQUARE1 == 1) && (SQUARE2 == 1) &&( SQUARE3 == 1))||((SQUARE4 == 1) && (SQUARE5 == 1 ) && (SQUARE6 == 1))|| 
 ((SQUARE7 == 1) && (SQUARE8 == 1) && ( SQUARE9 == 1)) || ((SQUARE1 == 1 )&& (SQUARE4 == 1 ) && ( SQUARE7 == 1)) ||
 ((SQUARE2 == 1) && (SQUARE5 == 1) && ( SQUARE8 == 1))|| ((SQUARE3 ==1) && (SQUARE6 == 1) &&( SQUARE9 == 1))||
@@ -385,6 +386,7 @@ tft.fillScreen(WHITE);
 
 }
 
+//FORMA DE ELEGIR EL GANADOR PARA JUGADOR 2
 else if (((SQUARE1 == 2) && (SQUARE2 == 2) &&( SQUARE3 == 2))||((SQUARE4 == 2) && (SQUARE5 == 2 ) && (SQUARE6 == 2))|| 
 ((SQUARE7 == 2) && (SQUARE8 == 2) && ( SQUARE9 == 2)) || ((SQUARE1 == 2 )&& (SQUARE4 == 2 ) && ( SQUARE7 == 2)) ||
 ((SQUARE2 == 2) && (SQUARE5 == 2) && ( SQUARE8 == 2))|| ((SQUARE3 ==2) && (SQUARE6 == 2) &&( SQUARE9 == 2))||
@@ -401,14 +403,14 @@ else if (((SQUARE1 == 2) && (SQUARE2 == 2) &&( SQUARE3 == 2))||((SQUARE4 == 2) &
     delay (2000);
       
   }
-
+//SI HAY EMPATE
  if (numb_Turns == 9)
   {
     tft.fillScreen(WHITE);
     tft.setCursor(20,100);
     tft.setTextColor(BLACK);
     tft.setTextSize(6);
-    tft.print("END GAME");
+    tft.print("GAME OVER");
 delay (3000);
   }
 }
